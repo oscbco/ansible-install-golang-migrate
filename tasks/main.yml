@@ -1,0 +1,10 @@
+- name: Download the specified release of migrate and unpack it in /usr/local/bin
+  unarchive:
+    src: https://github.com/golang-migrate/migrate/releases/download/{{ migrate_version }}/migrate.linux-amd64.tar.gz
+    dest: /usr/local/bin/
+    owner: root
+    group: staff
+    remote_src: yes
+
+- name: MIGRATE Rename it to just migrate
+  command: mv /usr/local/bin/migrate.linux-amd64 /usr/local/bin/migrate
